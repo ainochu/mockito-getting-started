@@ -30,15 +30,21 @@ public class MockitoAnnotationTest {
     private Map<String, String> roles;
 
     @Test
-    public void testUserMockInjected() {
+    public void testUserWithMockito() {
+        //Get method
+        when(user.getRole("ADMIN_ROLE")).thenReturn("user_1");
+
+        //Assert
+        Assert.assertEquals("user_1", roles.get("ADMIN_ROLE"));
+
+    }
+
+    @Test
+    public void testUserWithoutMockito(){
         //Put method
         roles.put("ADMIN_ROLE", "user_1");
         user.setRole("MEDIUM_ROLE", "user_2");
         Assert.assertEquals(roles.get("ADMIN_ROLE"), user.getRole("ADMIN_ROLE"));
-
-        //Get method
-        when(user.getRole("ADMIN_ROLE")).thenReturn("user_1");
-        Assert.assertEquals("user_1", roles.get("ADMIN_ROLE"));
     }
 
 }
