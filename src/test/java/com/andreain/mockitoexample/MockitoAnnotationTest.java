@@ -40,7 +40,7 @@ public class MockitoAnnotationTest {
     }
 
     @Test
-    public void testUserWithoutMockito(){
+    public void testUserWithoutMockito() {
         //Put method
         roles.put("ADMIN_ROLE", "user_1");
         user.setRole("MEDIUM_ROLE", "user_2");
